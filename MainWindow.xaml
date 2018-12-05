@@ -1,0 +1,38 @@
+﻿<Window x:Class="WpfCefTransparency.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfCefTransparency"
+        mc:Ignorable="d"
+        xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+        Title="MainWindow" Height="1100" Width="800" 
+        WindowStyle="SingleBorderWindow"
+        AllowsTransparency="False"
+        Background="AliceBlue"
+        >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Center" Text="Wpf window with white background hosting semi-transparent PNG in different ways." Foreground="Black" FontSize="14" Background="White" Margin="10"></TextBlock>
+
+        <Image Grid.Row="1" Source="transptest/semitransparent.png"/>
+        <TextBlock Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Text="PNG Image in WPF. EXPECTED RESULT" Foreground="Green" FontSize="30" Background="Yellow" Margin="10"></TextBlock>
+
+        <cefSharp:ChromiumWebBrowser Grid.Row="2" x:Name="ChrWb2" Margin="10" />
+        <TextBlock Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" Text="PNG Image in Cef browser (file://.../semitransparent.png)" Foreground="Green" FontSize="16" Background="Yellow" Margin="10"></TextBlock>
+
+        <cefSharp:ChromiumWebBrowser Grid.Row="3" x:Name="ChrWb" Margin="10"/>
+        <TextBlock Grid.Row="3" VerticalAlignment="Top" HorizontalAlignment="Left" Text="PNG Image in document in Cef browser (file://.../index.html)" Foreground="Green" FontSize="16" Background="Yellow" Margin="10"></TextBlock>
+
+        <cefSharp:ChromiumWebBrowser Grid.Row="4" x:Name="ChrWb3" Margin="10" Background="Transparent"/>
+        <TextBlock Grid.Row="4" VerticalAlignment="Top" HorizontalAlignment="Left" Text="DIV with gradient fill (transparent-to-red) in document in Cef browser (file://.../gradient.html)" Foreground="Green" FontSize="16" Background="Yellow" Margin="10"></TextBlock>
+
+    </Grid>
+</Window>
